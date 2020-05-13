@@ -1,0 +1,50 @@
+<template>
+  <div id="app">
+<!-- 左边导航-->
+    <leftNav></leftNav>
+<!-- 主文公共区域-->
+    <img src="./assets/logo.png">
+    <div id="app-vue">
+      <router-link to="/">首页</router-link><span>|</span>
+      <router-link to="/product">产品</router-link><span>|</span>
+      <router-link :to="{name:'product1',params:{username:'ziqin',id:'666'}}">产品1</router-link><span>|</span>
+      <router-link to="/product/product2">产品2</router-link><span>|</span>
+      <router-link to="/params/888/ziqin">Params</router-link>
+    </div>
+    <p>{{ $route.name }}</p>
+    <router-view></router-view>
+    <router-view name='left' style="float:left;width:47.5%;height:300px;background-color:#ccc;"></router-view>
+    <router-view name="right" style="float:left;width:47.5%;height:300px;background-color:#c0c;"></router-view>
+  </div>
+</template>
+
+<script>
+import leftNav from '@/components/common/leftNav'
+export default {
+  name: 'App',
+  components: {
+    leftNav
+  }
+}
+</script>
+
+<style>
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+}
+.main{
+  float:left;
+  width:95%;
+  background-color: #EFF2F7;
+  height:100%;
+  overflow: auto;
+
+}
+#app-vue span{
+  margin: 0 10px;
+}
+</style>
