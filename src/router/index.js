@@ -11,6 +11,7 @@ import Error from '@/components/page/Error'
 import Von from '@/components/page/Von'
 import Vmodel from '@/components/page/Vmodel'
 import Vbind from '@/components/page/Vbind'
+import Vuedirective from '@/components/page/Vue.directive'
 
 Vue.use(Router)
 
@@ -68,6 +69,9 @@ export default new Router({
     }, {
       path: '/vbind',
       component: Vbind
+    }, {
+      path: '/vuedirective', // 跳转到自定义指令
+      component: Vuedirective
     }
   ]
 })
