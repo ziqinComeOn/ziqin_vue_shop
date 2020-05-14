@@ -15,9 +15,11 @@
       <router-link to="/ziqin">ziqin</router-link><span>|</span>
     </div>
     <p>{{ $route.name }}</p>
-    <router-view></router-view>
-    <router-view name='left' style="float:left;width:47.5%;height:300px;background-color:#ccc;"></router-view>
-    <router-view name="right" style="float:left;width:47.5%;height:300px;background-color:#c0c;"></router-view>
+    <transition name="fade" mode="out-in">
+      <router-view></router-view>
+    </transition>
+      <router-view name='left' style="float:left;width:47.5%;height:300px;background-color:#ccc;"></router-view>
+      <router-view name="right" style="float:left;width:47.5%;height:300px;background-color:#c0c;"></router-view>
   </div>
 </template>
 
@@ -49,5 +51,18 @@ export default {
 }
 #app-vue span{
   margin: 0 10px;
+}
+.fade-enter {
+  opacity:0;
+}
+.fade-leave{
+  opacity:1;
+}
+.fade-enter-active{
+  transition:opacity .5s;
+}
+.fade-leave-active{
+  opacity:0;
+  transition:opacity .5s;
 }
 </style>
