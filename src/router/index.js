@@ -36,11 +36,15 @@ export default new Router({
       path: '/params/:newsId(\\d+)/:newsTitle', // 对Id要求必须是数字,加正则
       component: Params
     }, {
-      path: '/goBack',
+      path: '/goBack', // 重定向
       redirect: '/'
     }, {
-      path: '/goParams/:newsId(\\d+)/:newsTitle',
+      path: '/goParams/:newsId(\\d+)/:newsTitle', // 带参数重定向
       redirect: '/params/:newsId(\\d+)/:newsTitle'
+    }, {
+      path: '/product',
+      component: Product,
+      alias: '/ziqin' // alias别名的使用
     }
   ]
 })

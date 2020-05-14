@@ -12,7 +12,7 @@
       <router-link to="/params/888/ziqin">Params</router-link><span>|</span>
       <router-link to="/goBack">返回首页</router-link><span>|</span>
       <router-link to="/goParams/192/ziqina">返回Params页</router-link><span>|</span>
-      <router-link to="/goParams/192/ziqina">返回Params页</router-link><span>|</span>
+      <router-link to="/ziqin">ziqin</router-link><span>|</span>
     </div>
     <p>{{ $route.name }}</p>
     <router-view></router-view>
