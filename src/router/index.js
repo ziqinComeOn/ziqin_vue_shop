@@ -7,10 +7,12 @@ import Product2 from '@/components/page/Product2'
 import Product11 from '@/components/page/Product11'
 import Product22 from '@/components/page/Product22'
 import Params from '@/components/page/Params'
+import Error from '@/components/page/Error'
 
 Vue.use(Router)
 
 export default new Router({
+  mode: 'history', // mode的两个值history（url不带#）和 hash(url带#)
   routes: [
     {
       path: '/',
@@ -45,6 +47,9 @@ export default new Router({
       path: '/product',
       component: Product,
       alias: '/ziqin' // alias别名的使用
+    }, {
+      path: '*', // 404页面的配置
+      component: Error
     }
   ]
 })
