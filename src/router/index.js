@@ -36,7 +36,13 @@ export default new Router({
       ]
     }, {
       path: '/params/:newsId(\\d+)/:newsTitle', // 对Id要求必须是数字,加正则
-      component: Params
+      component: Params,
+      beforeEnter: (to, from, next) => { // 路由中的钩子
+        console.log('我进入了params模板')
+        console.log(to)
+        console.log(from)
+        next()
+      }
     }, {
       path: '/goBack', // 重定向
       redirect: '/'
