@@ -14,6 +14,8 @@
       <router-link to="/goParams/192/ziqina">返回Params页</router-link><span>|</span>
       <router-link to="/ziqin">ziqin</router-link><span>|</span>
       <router-link to="/bbbbbb">我是404预览页</router-link><span>|</span>
+      <button @click="goback">后退</button>
+      <button @click="gohome">回到首页</button>
     </div>
     <p>{{ $route.name }}</p>
     <transition name="fade" mode="out-in">
@@ -30,6 +32,14 @@ export default {
   name: 'App',
   components: {
     leftNav
+  },
+  methods: {
+    goback () { // 后退
+      this.$router.go(-1)
+    },
+    gohome () { // 回到首页
+      this.$router.push('/')
+    }
   }
 }
 </script>
