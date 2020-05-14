@@ -8,6 +8,7 @@ import Product11 from '@/components/page/Product11'
 import Product22 from '@/components/page/Product22'
 import Params from '@/components/page/Params'
 import Error from '@/components/page/Error'
+import Von from '@/components/page/Von'
 
 Vue.use(Router)
 
@@ -56,6 +57,9 @@ export default new Router({
     }, {
       path: '*', // 404页面的配置
       component: Error
+    }, {
+      path: '/von',
+      component: Von
     }
   ]
 })

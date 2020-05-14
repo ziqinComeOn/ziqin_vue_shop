@@ -16,6 +16,7 @@
       <router-link to="/bbbbbb">我是404预览页</router-link><span>|</span>
       <button @click="goback">后退</button>
       <button @click="gohome">回到首页</button>
+      <router-link to="/von">v-on监听事件</router-link><span>|</span>
     </div>
     <p>{{ $route.name }}</p>
     <transition name="fade" mode="out-in">
