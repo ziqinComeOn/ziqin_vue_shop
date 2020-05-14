@@ -9,7 +9,10 @@
       <router-link to="/product">产品</router-link><span>|</span>
       <router-link :to="{name:'product1',params:{username:'ziqin',id:'666'}}">产品1</router-link><span>|</span>
       <router-link to="/product/product2">产品2</router-link><span>|</span>
-      <router-link to="/params/888/ziqin">Params</router-link>
+      <router-link to="/params/888/ziqin">Params</router-link><span>|</span>
+      <router-link to="/goBack">返回首页</router-link><span>|</span>
+      <router-link to="/goParams/192/ziqina">返回Params页</router-link><span>|</span>
+      <router-link to="/goParams/192/ziqina">返回Params页</router-link><span>|</span>
     </div>
     <p>{{ $route.name }}</p>
     <router-view></router-view>

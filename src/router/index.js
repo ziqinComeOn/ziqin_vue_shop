@@ -35,6 +35,12 @@ export default new Router({
     }, {
       path: '/params/:newsId(\\d+)/:newsTitle', // 对Id要求必须是数字,加正则
       component: Params
+    }, {
+      path: '/goBack',
+      redirect: '/'
+    }, {
+      path: '/goParams/:newsId(\\d+)/:newsTitle',
+      redirect: '/params/:newsId(\\d+)/:newsTitle'
     }
   ]
 })
