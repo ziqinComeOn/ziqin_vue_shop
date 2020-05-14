@@ -18,6 +18,7 @@
       <button @click="gohome">回到首页</button>
       <router-link to="/von">v-on监听事件</router-link><span>|</span>
       <router-link to="/vmodel">v-model指令</router-link><span>|</span>
+      <router-link to="/vbind">v-bind绑定</router-link><span>|</span>
     </div>
     <p>{{ $route.name }}</p>
     <transition name="fade" mode="out-in">

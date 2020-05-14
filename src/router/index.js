@@ -10,6 +10,7 @@ import Params from '@/components/page/Params'
 import Error from '@/components/page/Error'
 import Von from '@/components/page/Von'
 import Vmodel from '@/components/page/Vmodel'
+import Vbind from '@/components/page/Vbind'
 
 Vue.use(Router)
 
@@ -64,6 +65,9 @@ export default new Router({
     }, {
       path: '/vmodel',
       component: Vmodel
+    }, {
+      path: '/vbind',
+      component: Vbind
     }
   ]
 })
