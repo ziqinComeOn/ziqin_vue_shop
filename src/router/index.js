@@ -12,11 +12,12 @@ import Von from '@/components/page/Von'
 import Vmodel from '@/components/page/Vmodel'
 import Vbind from '@/components/page/Vbind'
 import Vuedirective from '@/components/page/Vue.directive'
+import Vueextend from '@/components/page/Vue.extend'
 
 Vue.use(Router)
 
 export default new Router({
-  mode: 'history', // mode的两个值history（url不带#）和 hash(url带#)
+  // mode: 'history', // mode的两个值history（url不带#）和 hash(url带#)
   routes: [
     {
       path: '/',
@@ -72,6 +73,9 @@ export default new Router({
     }, {
       path: '/vuedirective', // 跳转到自定义指令
       component: Vuedirective
+    }, { // extend扩展实例构造器
+      path: '/vueextend',
+      component: Vueextend
     }
   ]
 })

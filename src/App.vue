@@ -20,6 +20,7 @@
       <router-link to="/vmodel">v-model指令</router-link><span>|</span>
       <router-link to="/vbind">v-bind绑定</router-link><span>|</span>
       <router-link to="/vuedirective">Vuedirective自定义指令</router-link><span>|</span>
+      <router-link to="/vueextend">Vueextend扩展实例构造器</router-link><span>|</span>
     </div>
     <p>{{ $route.name }}</p>
     <transition name="fade" mode="out-in">
