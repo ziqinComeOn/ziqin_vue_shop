@@ -13,6 +13,7 @@ import Vmodel from '@/components/page/Vmodel'
 import Vbind from '@/components/page/Vbind'
 import Vuedirective from '@/components/page/Vue.directive'
 import Vueextend from '@/components/page/Vue.extend'
+import Vueset from '@/components/page/Vue.set'
 
 Vue.use(Router)
 
@@ -73,9 +74,12 @@ export default new Router({
     }, {
       path: '/vuedirective', // 跳转到自定义指令
       component: Vuedirective
-    }, { // extend扩展实例构造器
-      path: '/vueextend',
+    }, {
+      path: '/vueextend', // extend扩展实例构造器
       component: Vueextend
+    }, {
+      path: '/vueset', // Vue.set全局操作
+      component: Vueset
     }
   ]
 })
