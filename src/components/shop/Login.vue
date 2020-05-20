@@ -6,13 +6,13 @@
                 <img src="../../assets/logo.png" alt="">
             </div>
             <!-- 登录表单区域 -->
-            <el-form :model="loginForm" label-width="0px" class="login_form">
+            <el-form :model="loginForm" :rules="loginFormRules" label-width="0px" class="login_form">
                 <!-- 用户名 -->
-                <el-form-item>
+                <el-form-item prop="username">
                     <el-input v-model="loginForm.username" prefix-icon="iconfont icon-yonghutianchong"></el-input>
                 </el-form-item>
                 <!-- 密码 -->
-                <el-form-item>
+                <el-form-item prop="password">
                     <el-input type="password" v-model="loginForm.password" prefix-icon="iconfont icon-suoding"></el-input>
                 </el-form-item>
                 <!-- 按钮 -->
@@ -28,11 +28,49 @@
 <script>
 export default {
   data () {
+    var validatePass = (rule, value, callback) => {
+      if (value === '') {
+        callback(new Error('请输入密码'))
+      } else {
+        if (this.ruleForm.checkPass !== '') {
+          this.$refs.ruleForm.validateField('checkPass')
+        }
+        callback()
+      }
+    }
+    var validatePass2 = (rule, value, callback) => {
+      if (value === '') {
+        callback(new Error('请再次输入密码'))
+      } else if (value !== this.ruleForm.pass) {
+        callback(new Error('两次输入密码不一致!'))
+      } else {
+        callback()
+      }
+    }
+
     return {
       // 这是登录表单的数据绑定对象
       loginForm: {
         username: '',
         password: ''
+      },
+      // 这是表单的验证规则对象
+      loginFormRules: {
+        // 验证用户名是否合法
+        username: [
+          { required: true, message: '请输入用户名', trigger: 'blur' },
+          { min: 3, max: 10, message: '长度在 3 到 10 个字符', trigger: 'blur' }
+        ],
+        // 验证密码是否合法
+        password: [
+          { required: true, message: '请输入密码', trigger: 'blur' },
+          { min: 3, max: 18, message: '长度在 3 到 18 个字符', trigger: 'blur' },
+          { validator: validatePass, trigger: 'blur' }
+        ],
+        // 验证第二次密码是否合法
+        checkPassword: [
+          { validator: validatePass2, trigger: 'blur' }
+        ]
       }
     }
   }
