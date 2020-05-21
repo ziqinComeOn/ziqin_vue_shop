@@ -94,9 +94,13 @@ export default {
           const {data: res} = await this.$http.post('login', this.loginForm)
           // console.log(res)
           if (res.meta.status !== 200) {
-            return this.$message.error('登录失败')
+            return this.$message.error('登录失败') // 调用elementui全局消息函数
           } else {
-            this.$message.success('登录成功')
+            this.$message.success('登录成功') // 调用elementui全局消息函数
+            // 将登录成功之后的token保存到客户端的sessionStorage中
+            sessionStorage.setItem('token', res.data.token)
+            // 登录成功通过编程式导航跳转到后台首页 路由地址是 /home
+            this.$router.push('/home')
           }
         }
       })
