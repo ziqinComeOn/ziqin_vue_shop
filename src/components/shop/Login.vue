@@ -84,8 +84,21 @@ export default {
     },
     // 表单预验证
     login () {
-      this.$refs.loginFormRef.validate(valid => {
-        console.log(valid)
+      this.$refs.loginFormRef.validate(async valid => {
+        // console.log(valid)
+        if (!valid) {
+          // eslint-disable-next-line no-useless-return
+          return
+        } else {
+          // 发起登录请求
+          const {data: res} = await this.$http.post('login', this.loginForm)
+          // console.log(res)
+          if (res.meta.status !== 200) {
+            return this.$message.error('登录失败')
+          } else {
+            this.$message.success('登录成功')
+          }
+        }
       })
     }
   }
