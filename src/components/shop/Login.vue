@@ -17,7 +17,7 @@
                 </el-form-item>
                 <!-- 按钮 -->
                 <el-form-item class="btns">
-                    <el-button type="primary">登录</el-button>
+                    <el-button @click="login" type="primary">登录</el-button>
                     <el-button @click="resetLoginForm" type="info">重置</el-button>
                 </el-form-item>
             </el-form>
@@ -32,9 +32,9 @@ export default {
       if (value === '') {
         callback(new Error('请输入密码'))
       } else {
-        if (this.ruleForm.checkPass !== '') {
-          this.$refs.ruleForm.validateField('checkPass')
-        }
+        // if (this.ruleForm.checkPass !== '') {
+        //   this.$refs.ruleForm.validateField('checkPass')
+        // }
         callback()
       }
     }
@@ -81,6 +81,12 @@ export default {
       this.$refs.loginFormRef.resetFields() // resetFields对整个表单进行重置，将所有字段值重置为初始值并移除校验结果
       // this.loginForm.username = ''
       // this.loginForm.password = ''
+    },
+    // 表单预验证
+    login () {
+      this.$refs.loginFormRef.validate(valid => {
+        console.log(valid)
+      })
     }
   }
 }
