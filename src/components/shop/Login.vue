@@ -6,7 +6,7 @@
                 <img src="../../assets/logo.png" alt="">
             </div>
             <!-- 登录表单区域 -->
-            <el-form :model="loginForm" :rules="loginFormRules" label-width="0px" class="login_form">
+            <el-form ref="loginFormRef" :model="loginForm" :rules="loginFormRules" label-width="0px" class="login_form">
                 <!-- 用户名 -->
                 <el-form-item prop="username">
                     <el-input v-model="loginForm.username" prefix-icon="iconfont icon-yonghutianchong"></el-input>
@@ -18,7 +18,7 @@
                 <!-- 按钮 -->
                 <el-form-item class="btns">
                     <el-button type="primary">登录</el-button>
-                    <el-button type="info">重置</el-button>
+                    <el-button @click="resetLoginForm" type="info">重置</el-button>
                 </el-form-item>
             </el-form>
         </div>
@@ -38,15 +38,15 @@ export default {
         callback()
       }
     }
-    var validatePass2 = (rule, value, callback) => {
-      if (value === '') {
-        callback(new Error('请再次输入密码'))
-      } else if (value !== this.ruleForm.pass) {
-        callback(new Error('两次输入密码不一致!'))
-      } else {
-        callback()
-      }
-    }
+    // var validatePass2 = (rule, value, callback) => {
+    //   if (value === '') {
+    //     callback(new Error('请再次输入密码'))
+    //   } else if (value !== this.ruleForm.pass) {
+    //     callback(new Error('两次输入密码不一致!'))
+    //   } else {
+    //     callback()
+    //   }
+    // }
 
     return {
       // 这是登录表单的数据绑定对象
@@ -66,12 +66,21 @@ export default {
           { required: true, message: '请输入密码', trigger: 'blur' },
           { min: 3, max: 18, message: '长度在 3 到 18 个字符', trigger: 'blur' },
           { validator: validatePass, trigger: 'blur' }
-        ],
-        // 验证第二次密码是否合法
-        checkPassword: [
-          { validator: validatePass2, trigger: 'blur' }
         ]
+        // 验证第二次密码是否合法
+        // checkPassword: [
+        //   { validator: validatePass2, trigger: 'blur' }
+        // ]
       }
+    }
+  },
+  methods: {
+    // 表单重置函数
+    resetLoginForm () {
+      // console.log(this)
+      this.$refs.loginFormRef.resetFields() // resetFields对整个表单进行重置，将所有字段值重置为初始值并移除校验结果
+      // this.loginForm.username = ''
+      // this.loginForm.password = ''
     }
   }
 }
